@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { RandomUser } from '../components/RandonUser'
+import { RandomUser } from '../components/RandomUser'
 import { ChakraProvider } from '@chakra-ui/react' 
-import { Heading, SimpleGrid, Box, Badge, Image} from "@chakra-ui/react"
+import { Heading, SimpleGrid, Box, Badge, Image, Divider} from "@chakra-ui/react"
 import useSWR from 'swr'
 
-const API = 'https://pokeapi.co/api/v2/pokemon';
+const API = 'https://randomuser.me/api/?results=20';
 const fetcher = (...args) => fetch(...args).then((res)=>res.json())
 
 export default function Home() {
@@ -26,7 +26,8 @@ export default function Home() {
       </Head>
       
       <main className={styles.main}>
-        <Heading>PokeShow</Heading>
+        <Heading>RandomUserShow</Heading>
+        <Divider orientation='horizontal'/>
         <SimpleGrid
         bg='gray.50'
         columns={{ sm: 2, md: 4 }}
@@ -40,15 +41,14 @@ export default function Home() {
             // この中の引数は全部（key,value）対として扱い、objectとしてhook functionに渡す
             /*
              {  
-               key: re.name,
-               pokemon: re,
-               name1: 'bulbasaur',
+               key: re.phone,
+               userInfo: re
              }
              この感じでhook funに引数を渡す
              「注意：」'key'はreact用、開発者に関係ない（ユーニックで更新判断）
              */
             <Box boxShadow='xs' p='6' rounded='md' bg='white' maxW='sm'>
-              <RandomUser key={re.name} pokemon={re} name1={'bulbasaur'}></RandomUser>
+              <RandomUser key={ re.phone } userInfo={ re }></RandomUser>
             </Box>
           ))
         }
