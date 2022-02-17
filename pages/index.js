@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { Pokemon } from '../components/Pokemon'
+import { RandomUser } from '../components/RandonUser'
 import { ChakraProvider } from '@chakra-ui/react' 
 import { Heading, SimpleGrid, Box, Badge, Image} from "@chakra-ui/react"
 import useSWR from 'swr'
@@ -48,7 +48,7 @@ export default function Home() {
              「注意：」'key'はreact用、開発者に関係ない（ユーニックで更新判断）
              */
             <Box boxShadow='xs' p='6' rounded='md' bg='white' maxW='sm'>
-              <Pokemon key={re.name} pokemon={re} name1={'bulbasaur'}></Pokemon>
+              <RandomUser key={re.name} pokemon={re} name1={'bulbasaur'}></RandomUser>
             </Box>
           ))
         }

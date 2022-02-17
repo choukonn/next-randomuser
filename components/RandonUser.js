@@ -5,7 +5,7 @@ import { PhoneIcon, AddIcon, WarningIcon, DragHandleIcon, AttachmentIcon} from '
 import { SimpleGrid, Box, Badge, Image} from "@chakra-ui/react"
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-export const Pokemon = (props) => {
+export const RandomUser = (props) => {
     // {pokemon, name1:bulbasaur}
     const bulbasaur = props.name1
     const {name:pokemonName} = props.pokemon
